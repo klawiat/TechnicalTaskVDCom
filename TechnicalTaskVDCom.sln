@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{20EEA4F7-4DC1-4487-9E69-9791A2602E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductionCalendar", "ProductionCalendar\ProductionCalendar.csproj", "{E474E5DF-B8A3-4621-901E-7DEFA531A871}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20EEA4F7-4DC1-4487-9E69-9791A2602E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EEA4F7-4DC1-4487-9E69-9791A2602E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EEA4F7-4DC1-4487-9E69-9791A2602E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EEA4F7-4DC1-4487-9E69-9791A2602E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E474E5DF-B8A3-4621-901E-7DEFA531A871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E474E5DF-B8A3-4621-901E-7DEFA531A871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E474E5DF-B8A3-4621-901E-7DEFA531A871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E474E5DF-B8A3-4621-901E-7DEFA531A871}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DE9A0A6-FDB2-460A-A091-F5DEC4B6F8EB}
+	EndGlobalSection
+EndGlobal
