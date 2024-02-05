@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-
-namespace ProductionCalendar.Interfaces
+﻿namespace ProductionCalendar.Interfaces
 {
     public interface IProductionCalendarService
     {

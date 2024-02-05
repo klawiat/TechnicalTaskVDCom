@@ -1,19 +1,16 @@
 ﻿using ConsoleApp.Utility;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Npgsql;
-using System.Runtime.CompilerServices;
 
 namespace ConsoleApp
 {
     internal class Program
     {
-        static string connectionString = "Host=localhost;Database=TechnicalTaskVDCom;Username=postgres;Password=Klawiat1324";
-        static void Main(string[] args)
+        private static string connectionString = "Host=localhost;Database=TechnicalTaskVDCom;Username=postgres;Password=Klawiat1324";
+
+        private static void Main(string[] args)
         {
             Facade facade = new Facade(connectionString);
             char answer = '1';
-            while (answer != '6') 
+            while (answer != '6')
             {
                 Console.WriteLine("Выберите действие:\n" +
                 "1.\tВывести сумму всех заключенных договоров за текущий год.\n" +

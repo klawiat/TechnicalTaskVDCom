@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp.Entities.Abstract
+﻿namespace ConsoleApp.Entities.Abstract
 {
     internal abstract class EntityBase
     {
         public int Id { get; set; }
-        public string Name {  get; set; }
+        public string Name { get; set; }
         public string Сountry { get; set; }
         public string City { get; set; }
         public string Address { get; set; }

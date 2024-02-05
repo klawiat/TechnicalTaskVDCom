@@ -5,7 +5,7 @@ using ProductionCalendar.Models;
 
 namespace ProductionCalendar.Services
 {
-    public class ProductionCalendarService:IProductionCalendarService
+    public class ProductionCalendarService : IProductionCalendarService
     {
         private readonly ProductionCalendarDbContext context;
         public ProductionCalendarService(ProductionCalendarDbContext context)
@@ -15,7 +15,7 @@ namespace ProductionCalendar.Services
 
         public async Task<string?> GetInformationAboutTheDay(DateOnly date)
         {
-            var desiredDay = await context.days.FirstOrDefaultAsync(day=>day.Date == date);
+            Calendar? desiredDay = await context.days.FirstOrDefaultAsync(day => day.Date == date);
             return desiredDay is null ? null : desiredDay.TypeOfDay;
         }
 
@@ -28,7 +28,7 @@ namespace ProductionCalendar.Services
             {
                 result = await client.GetStringAsync(link);
             }
-            for (int i = 1; i <=result.Length; i++)
+            for (int i = 1; i <= result.Length; i++)
             {
                 Calendar calendar = new Calendar();
                 switch (result[i - 1])
@@ -49,7 +49,7 @@ namespace ProductionCalendar.Services
                         calendar.TypeOfDay = "Неизвестно";
                         break;
                 }
-                calendar.DayOfTheWeek = ((int)firstDate.AddDays(i-1).DayOfWeek);
+                calendar.DayOfTheWeek = ((int)firstDate.AddDays(i - 1).DayOfWeek);
                 calendar.Date = firstDate.AddDays(i - 1);
                 context.days.Add(calendar);
             }

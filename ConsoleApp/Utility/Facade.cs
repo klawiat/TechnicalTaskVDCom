@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Npgsql;
 
 namespace ConsoleApp.Utility
 {
-    public class Facade:IDisposable
+    public class Facade : IDisposable
     {
         private NpgsqlDataReader reader { get; set; }
 
@@ -35,8 +28,8 @@ namespace ConsoleApp.Utility
             Console.WriteLine($"Cумма всех заключенных договоров за текущий год: {reader.GetDecimal(0)}");
             reader.Close();
         }
-        
-        public void AmountUnderRussianContracts() 
+
+        public void AmountUnderRussianContracts()
         {
             command.CommandText = "SELECT SUM(contract.amount) as Contracts_Amount, legalentity.name as Name from contract " +
                                 "LEFT JOIN legalentity ON contract.legalentityid = legalentity.id " +
@@ -48,7 +41,7 @@ namespace ConsoleApp.Utility
                 Console.WriteLine($"\t{reader.GetString(1)}\t\t{reader.GetDecimal(0)}");
             reader.Close();
         }
-        public void EmailOfAuthorizedPersons() 
+        public void EmailOfAuthorizedPersons()
         {
             command.CommandText = "SELECT DISTINCT  individual.email FROM individual " +
                                 "JOIN contract ON contract.individualid = individual.id " +
@@ -65,7 +58,7 @@ namespace ConsoleApp.Utility
                                 "FROM individual " +
                                 "WHERE contract.individualid = individual.id " +
                                 "AND contract.status = 'Signed' AND individual.age>=60";
-            var count = command.ExecuteNonQuery();
+            int count = command.ExecuteNonQuery();
             Console.WriteLine($"Готово. Изменение коснулось {count} полей");
         }
         public void CreateReport()
@@ -89,9 +82,9 @@ namespace ConsoleApp.Utility
             string fileName = $"Очёт от {DateTime.Now.ToString("d")}.json";
             if (File.Exists(fileName))
                 File.Delete(fileName);
-            using (var fs = new FileStream(fileName, FileMode.CreateNew, FileAccess.Write))
+            using (FileStream fs = new FileStream(fileName, FileMode.CreateNew, FileAccess.Write))
             {
-                using (var sw = new StreamWriter(fs))
+                using (StreamWriter sw = new StreamWriter(fs))
                 {
                     JsonSerializer serializer = JsonSerializer.Create();
                     serializer.Serialize(sw, report);

@@ -3,10 +3,10 @@ using ProductionCalendar.Models;
 
 namespace ProductionCalendar.Data
 {
-    public class ProductionCalendarDbContext:DbContext
+    public class ProductionCalendarDbContext : DbContext
     {
         public DbSet<Calendar> days { get; set; }
-        public ProductionCalendarDbContext(DbContextOptions opt) :base(opt)
+        public ProductionCalendarDbContext(DbContextOptions opt) : base(opt)
         {
             Database.EnsureCreated();
         }
