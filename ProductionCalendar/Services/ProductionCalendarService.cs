@@ -15,7 +15,8 @@ namespace ProductionCalendar.Services
 
         public async Task<string?> GetInformationAboutTheDay(DateOnly date)
         {
-            Calendar? desiredDay = await context.days.FirstOrDefaultAsync(day => day.Date == date);
+            Calendar? desiredDay = context.days.First(d=>d.Date.Equals(date));
+            //Calendar? desiredDay = await context.days.FirstOrDefaultAsync(d => d.Date == date);
             return desiredDay is null ? null : desiredDay.TypeOfDay;
         }
 
